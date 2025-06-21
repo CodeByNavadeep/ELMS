@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Apply Leave - ELMS{% endblock %}
+{% block content %}
+<h2 class="text-center" >Apply for Leave</h2>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    
+    <div class="mb-3">
+        {{ form.reason.label(class="form-label") }}
+        {{ form.reason(class="form-control") }}
+    </div>
+    
+    <div class="mb-3">
+        {{ form.from_date.label(class="form-label") }}
+        {{ form.from_date(class="form-control") }}
+    </div>
+    
+    <div class="mb-3">
+        {{ form.to_date.label(class="form-label") }}
+        {{ form.to_date(class="form-control") }}
+    </div>
+    
+    <div class="mb-3">
+        {{ form.description.label(class="form-label") }}
+        {{ form.description(class="form-control", rows="3") }}
+    </div>
+    
+    <div>
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+</form>
+
+
+{% endblock %}
