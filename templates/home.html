@@ -1,8 +1,41 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %}Home - ELMS{% endblock %} {% block
+content %}
+<section class="hero">
+  <h1 class="display-4 fw-bold">Welcome to ELMS</h1>
+  <p class="lead">Employee Leave Management System</p>
+  <a href="/dashboard" class="btn btn-custom mt-3">Get Started</a>
+</section>
 
-{% block title %}Home - ELMS{% endblock %}
+<section class="features">
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="card block">
+        <i class="bi bi-speedometer2 display-4 text-primary mb-3"></i>
+        <h5>Fast Access</h5>
+        <p>Quick leave applications & approvals across roles.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card block">
+        <i class="bi bi-shield-lock display-4 text-primary mb-3"></i>
+        <h5>Secure</h5>
+        <p>Protected access for employees, managers, and admins.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card block">
+        <i class="bi bi-graph-up-arrow display-4 text-primary mb-3"></i>
+        <h5>Insightful Reports</h5>
+        <p>Generate leave trends in PDF/CSV formats easily.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-{% block content %}
-<h1>Welcome To ELMS</h1>
-<p>This is the Employee Leave Management System homepage.</p>
+<section class="cta">
+  <h2 class="fw-bold block">Ready to streamline your organization?</h2>
+  <p class="block">Join ELMS today and simplify your leave process.</p>
+  <a href="/register" class="btn btn-custom mt-2 block">Register Now</a>
+</section>
+
 {% endblock %}

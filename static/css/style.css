@@ -1,0 +1,105 @@
+html, body {
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    background: linear-gradient(135deg, #e3f2fd, #d0f0ff);
+    display: flex;
+    flex-direction: column;
+  }
+   @keyframes appear{
+    from{
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    to{
+      opacity:1;
+      transform: translateY(0px);
+    }
+  }
+
+  .auto{
+    animation: appear 0.5s linear;
+    animation-range: entry 0% cover 35%;
+  }
+
+  .block{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+
+      .hero {
+  height: 100vh;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #e3f2fd, #d0f0ff);
+  color: #212529;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.features {
+  width: 100%;
+  background: linear-gradient(135deg, #1f1f2e, #2c2c3c, #1a1a26);
+  padding: 4rem 1rem;
+  color: #333;
+}
+
+.features .card {
+  background: linear-gradient(135deg, #e3f2fd, #d0f0ff);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.cta {
+  background: linear-gradient(135deg, #e3f2fd, #d0f0ff);
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #0b3558;
+}
+
+.btn-style{
+  color: white;
+}
+  
+  footer {
+    background: linear-gradient(135deg, #1f1f2e, #2c2c3c, #1a1a26);
+    color: #f0f0f0;
+    margin-top: auto;
+  }
+
+  .btn-primary{
+    margin: 1rem 0;
+  }
+
+  .footer-link {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #0dcaf0;
+  }
+
+  @media (max-width: 767px) {
+    footer .col-lg-4 {
+      text-align: center;
+      
+    }
+  }
+
+
+  /* Optional: Smooth back-to-top hover */
+  .btn-outline-light:hover {
+    color: #000;
+  }

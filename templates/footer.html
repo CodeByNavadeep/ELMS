@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    footer {
+    background: linear-gradient(135deg, #1f1f2e, #2c2c3c, #1a1a26);
+    color: #f0f0f0;
+    margin-top: auto;
+  }
+
+  .footer-link {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #0dcaf0;
+  }
+
+  @media (max-width: 767px) {
+    footer .col-lg-4 {
+      text-align: center;
+      
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <!-- Footer -->
+    <footer class="bg-dark text-white pt-4 pb-2 mt-auto">
+      <div class="container">
+        <div class="row text-center text-lg-start">
+          <!-- Copyright -->
+          <div class="col-lg-4 mb-4">
+            <h5 class="fw-bold">© 2025 ELMS</h5>
+            <p class="mb-0">All rights reserved. Crafted with care.</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-4 mb-4">
+            <h5 class="fw-bold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="/" class="footer-link">Home</a></li>
+              <li class="nav-item">
+              {% if current_user.role == 'Employee' %}
+              <a
+                class="nav-link"
+                href="/dashboard/employee"
+                >Dashboard</a
+              >
+              {% endif %} {% if current_user.role == 'Manager' %}
+              <a
+                class="nav-link"
+                href="/dashboard/manager"
+                >Dashboard</a
+              >
+              {% endif %}
+              {% if current_user.role == 'Admin' %}
+              <a
+                class="nav-link"
+                href="/dashboard/admin"
+                >Dashboard</a
+              >
+              {% endif %}
+
+          {% if current_user.role=='Manager'or current_user.role=='Admin' or current_user.role=='Employee' %}
+            <li class="nav-item"><a class="nav-link"
+              href="/logout">Logout</a></li>
+            {% else %}
+              <li class="nav-item"><a class="nav-link"
+              href="login">Login/Register</a></li>
+            {% endif%}
+            </ul>
+          </div>
+
+          <!-- Contact Us -->
+          <div class="col-lg-4 mb-4">
+            <h5 class="fw-bold">Contact Us</h5>
+            <p class="mb-1"><i class="bi bi-envelope-fill me-2"></i>
+              elms@example.com</p>
+            <p><i class="bi bi-telephone-fill me-2"></i> +91 9573016411</p>
+          </div>
+        </div>
+
+        <!-- Back to Top -->
+        <div class="text-center pt-3">
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+            class="btn btn-outline-light btn-sm rounded-pill">
+            Back to Top ↑
+          </button>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

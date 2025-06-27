@@ -254,9 +254,7 @@ def reject_leave(leave_id):
     return redirect(url_for('manager_dashboard'))
 
 
-@app.route('/about')
-def about():
-    return render_template("about.html")
+
 
 
 

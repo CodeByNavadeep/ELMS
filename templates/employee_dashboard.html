@@ -1,5 +1,32 @@
 {% extends "base.html" %}
+
+{% block title %}Dashboard - ELMS{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
 {% block content %}
+
+<div class="container mt-4">
 <h2>🧑🏻‍💼 Employee Dashboard</h2>
-<p>Welcome {{ current_user.username }} ({{ current_user.role }})</p>
+<p class="container">Welcome {{ current_user.username }} ({{ current_user.role }})</p>
+<div class="row align-items-center justify-content-between">
+      <div class="col">
+        <h5>Apply Leave</h5>
+      </div>
+      <div class="col text-end">
+        <a href="{{ url_for('apply') }}"><button type="submit" class="btn btn-primary">Click Here</button></a>
+      </div>
+    </div>
+    <div class="row align-items-center justify-content-between">
+      <div class="col">
+        <h5>View Leave History</h5>
+      </div>
+      <div class="col text-end">
+        <a href="{{ url_for('leave_history') }}"><button type="submit" class="btn btn-primary">Click Here</button></a>
+      </div>
+    </div>
+</div>
+
 {% endblock %}
