@@ -3,7 +3,8 @@ content %}
 <section class="hero">
   <h1 class="display-4 fw-bold">Welcome to ELMS</h1>
   <p class="lead">Employee Leave Management System</p>
-  <a href="/dashboard" class="btn btn-custom mt-3">Get Started</a>
+  <a href="{{ url_for('employee_dashboard') }}" if current_user.role=='Employee' elif "{{ url_for('manager_dashboard') }}" if current_user.role==Manager else "{{ url_for('admin_dashboard') }}"
+   class="btn-style animation mt-3">Get Started</a>
 </section>
 
 <section class="features">
@@ -34,8 +35,8 @@ content %}
 
 <section class="cta">
   <h2 class="fw-bold block">Ready to streamline your organization?</h2>
-  <p class="block">Join ELMS today and simplify your leave process.</p>
-  <a href="/register" class="btn btn-custom mt-2 block">Register Now</a>
+  <p class="mb-4 block">Join ELMS today and simplify your leave process.</p>
+  <a href="/register" class="btn-style animation mt-4 block">Register Now</a>
 </section>
 
 {% endblock %}

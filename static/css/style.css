@@ -8,27 +8,6 @@ html, body {
     display: flex;
     flex-direction: column;
   }
-   @keyframes appear{
-    from{
-      opacity: 0;
-      transform: translateY(100px);
-    }
-    to{
-      opacity:1;
-      transform: translateY(0px);
-    }
-  }
-
-  .auto{
-    animation: appear 0.5s linear;
-    animation-range: entry 0% cover 35%;
-  }
-
-  .block{
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-  }
 
       .hero {
   height: 100vh;
@@ -41,6 +20,16 @@ html, body {
   justify-content: center;
   flex-direction: column;
 }
+
+.animation{
+    transition: color 0.3s ease;
+  }
+
+  .animation:hover{
+     transform: scale(0.95); 
+  }
+
+  
 .features {
   width: 100%;
   background: linear-gradient(135deg, #1f1f2e, #2c2c3c, #1a1a26);
@@ -66,40 +55,24 @@ html, body {
 }
 
 .btn-style{
-  color: white;
+  color: black;
+  padding: 0.5rem 1.2rem 0.5rem;
+  border: 1px solid black;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
-  
-  footer {
-    background: linear-gradient(135deg, #1f1f2e, #2c2c3c, #1a1a26);
-    color: #f0f0f0;
-    margin-top: auto;
-  }
+
+.btn-style:hover,
+.btn-style:active{
+  color: white;
+  background-color: #2c2c3c;
+  border: none;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
 
   .btn-primary{
-    margin: 1rem 0;
-  }
-
-  .footer-link {
-    color: #ccc;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 5px;
-    transition: color 0.3s ease;
-  }
-
-  .footer-link:hover {
-    color: #0dcaf0;
-  }
-
-  @media (max-width: 767px) {
-    footer .col-lg-4 {
-      text-align: center;
-      
-    }
-  }
-
-
-  /* Optional: Smooth back-to-top hover */
-  .btn-outline-light:hover {
-    color: #000;
+    margin: 1rem 1rem;
   }
