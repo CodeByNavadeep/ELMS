@@ -11,7 +11,7 @@
         <div class="mb-3">{{ form.confirm_password.label }} {{ form.confirm_password(class="form-control") }}</div>
         <div class="mb-3">{{ form.role.label }} {{ form.role(class="form-select") }}</div>
 
-        {{ form.submit(class="btn btn-primary") }}
+        {{ form.submit(class="btn btn-primary login-btn") }}
         <p>Already have an account? <a href="{{ url_for('login') }}">Log In here</a>.</p>
     </form>
 </div>
