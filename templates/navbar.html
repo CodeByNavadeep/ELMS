@@ -46,8 +46,8 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <!--<img src="https://via.placeholder.com/30" alt="Logo" class="me-2">-->
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="static\images\empLogo2-removebg-preview.png" width="35" height="35" alt="Logo" class="me-2" >
         <span class="fw-bold fs-5">ELMS</span>
       </a>
 
@@ -121,16 +121,16 @@
               >
               {% endif %} {% if current_user.role == 'Manager' %}
               <a
-                class="nav-link"
+                class="nav-link d-flex align-items-center"
                 href="/dashboard/manager"
-                >Manager Dashboard</a
+                ><i class='bxr  bx-user-square me-2' ></i>  Manager Dashboard</a
               >
               {% endif %}
               {% if current_user.role == 'Admin' %}
               <a
-                class="nav-link"
+                class="nav-link d-flex align-items-center"
                 href="/dashboard/admin"
-                >Admin Dashboard</a
+                ><i class='bxr  bx-user-square me-2' ></i>  Admin Dashboard</a
               >
               {% endif %}
           {% if current_user.role=='Manager'or current_user.role=='Admin' or current_user.role=='Employee' %}

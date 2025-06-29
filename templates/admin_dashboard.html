@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% block title %}Admin Dashboard- ELMS{% endblock %}
 {% block content %}
 <div class="container mt-4 mb-4">
 <h2>👑 Admin Dashboard</h2>
-
+<div class="container mt-4 mb-4">
 <h4>👥 All Users</h4>
-<table class="table table-bordered" style="overflow-x:auto;">
+<table class="table table-bordered mt-2 mb-4">
     <thead>
         <tr>
             <th>Username</th>
@@ -22,7 +23,7 @@
 </table>
 
 <h4>📄 All Leave Records</h4>
-<table class="table table-striped" style="overflow-x:auto;">
+<table class="table table-striped responsive-table mt-2">
     <thead>
         <tr>
             <th>Employee</th>
@@ -45,6 +46,7 @@
     </tbody>
 </table>
 
-<a href="{{ url_for('download_csv') }}" class="btn btn-primary mt-3">Download CSV Report</a>
+<a href="{{ url_for('download_csv') }}" class="btn btn-primary mt-3"><i class="fas fa-download me-2"></i>Download CSV Report</a>
+</div>
 </div>
 {% endblock %}

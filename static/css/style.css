@@ -21,6 +21,17 @@ html, body {
   flex-direction: column;
 }
 
+.responsive-table{
+  width: 100%;
+  overflow-x: auto;
+}
+
+.responsive-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Or whatever is your table's natural width */
+}
+
 .animation{
     transition: color 0.3s ease;
   }
@@ -73,6 +84,13 @@ html, body {
   transition: background-color 0.3s ease;
 }
 
-  .btn-primary{
-    margin: 1rem 1rem;
+  @media (max-width: 768px) {
+  .btn-primary {
+    display: block;
+    width: 100%;
+    box-sizing: border-box; 
+    margin-top: 16px;
+    margin-bottom: 10px;    
   }
+}
+
