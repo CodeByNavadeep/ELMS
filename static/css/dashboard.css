@@ -1,6 +1,6 @@
 .row{
   display: flex;
-  justify-content: space-between; /* Pushes content to ends */
-  align-items: center;            /* Vertically centers */
+  justify-content: space-between; 
+  align-items: center;            
   padding: 10px;
 }

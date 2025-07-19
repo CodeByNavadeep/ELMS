@@ -1,15 +1,13 @@
 {% extends 'base.html' %} {% block title %}Home - ELMS{% endblock %} {% block
 content %}
-<section class="hero">
+<section class="cta">
   <h1 class="display-4 fw-bold">Welcome to ELMS</h1>
-  <p class="lead">Employee Leave Management System</p>
+  <p class="lead mb-4">Employee Leave Management System</p>
   <a href="{{
     url_for('employee_dashboard') if current_user.role == 'Employee'
     else url_for('manager_dashboard') if current_user.role == 'Manager'
     else url_for('admin_dashboard')
-}}"class="btn-style mt-3">Get Started</a>
-
-   
+}}" class="btn-style">Get Started</a>
 </section>
 
 <section class="features">
@@ -41,7 +39,7 @@ content %}
 <section class="cta">
   <h2 class="fw-bold block">Ready to streamline your organization?</h2>
   <p class="mb-4 block">Join ELMS today and simplify your leave process.</p>
-  <a href="/register" class="btn-style animation mt-4 block">Register Now</a>
+  <a href="/register" class="btn-style mt-4">Register Now</a>
 </section>
 
 {% endblock %}

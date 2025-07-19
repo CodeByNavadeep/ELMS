@@ -1,9 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, TextAreaField, SubmitField
-from wtforms.validators import DataRequired, Length
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, SelectField
-from wtforms.validators import DataRequired, EqualTo, Length
+from wtforms import StringField, DateField, TextAreaField, SubmitField, PasswordField, SelectField
+from wtforms.validators import DataRequired, EqualTo, Length, ValidationError
+
+
+def no_space(form, field):
+    if ' ' in field.data:
+        raise ValidationError('Username should not contain spaces.')
+
 
 class LeaveForm(FlaskForm):
     reason = StringField('Reason', validators=[DataRequired(), Length(min=3, max=100)])
@@ -13,7 +16,7 @@ class LeaveForm(FlaskForm):
     submit = SubmitField('Apply Leave')
     
 class RegisterForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=4, max=20)])
+    username = StringField('Username', validators=[DataRequired(), Length(min=4, max=20), no_space])
     #email=StringField('email', validators=[DataRequired(), Length(min=4, max=100)])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=4)])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])

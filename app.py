@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash, request
+from flask import Flask, render_template, redirect, url_for, flash, request, make_response
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from forms import LeaveForm, RegisterForm
 from flask_sqlalchemy import SQLAlchemy
@@ -6,7 +6,6 @@ from extensions import db
 from models import Leave, User 
 from functools import wraps
 import pandas as pd
-from flask import make_response
 
 app = Flask(__name__)
 app.secret_key = "@navadeep$12345"
@@ -26,7 +25,6 @@ db.init_app(app)
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        # Check if username exists
         existing_user = User.query.filter_by(username=form.username.data).first()
         if existing_user:
             flash("Username already exists. Choose another!", "warning")
@@ -35,7 +33,7 @@ def register():
         # Create new user
         new_user = User(
             username=form.username.data,
-            password=form.password.data,  # Later hash this
+            password=form.password.data,  
             role=form.role.data
         )
         db.session.add(new_user)
@@ -78,7 +76,7 @@ def role_required(allowed_roles):
         def decorated_function(*args, **kwargs):
             if current_user.role not in allowed_roles:
                 flash("You are not authorized to access this page.", "danger")
-                return redirect(url_for('login'))  # Or a 403 page
+                return redirect(url_for('login'))  
             return f(*args, **kwargs)
         return decorated_function
     return decorator
@@ -115,7 +113,6 @@ def apply():
 def leave_history():
     query = Leave.query.filter_by(user_id=current_user.id)
 
-    # Filters from form
     status_filter = request.args.get('status')
     from_date = request.args.get('from_date')
     to_date = request.args.get('to_date')
@@ -252,10 +249,6 @@ def reject_leave(leave_id):
     db.session.commit()
     flash("Leave rejected.", "warning")
     return redirect(url_for('manager_dashboard'))
-
-
-
-
 
 
 if __name__ == '__main__':
